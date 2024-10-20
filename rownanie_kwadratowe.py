@@ -14,7 +14,7 @@ elif delta == 0:
     print(f"jedno rozwiazanie, dla: {x0}")
 
 else:
-    x1 = (-b - math.sqrt(delta))/2*a
-    x2 = (-b + math.sqrt(delta))/2*a
+    x1 = (-b - math.sqrt(delta)) / (2 * a)
+    x2 = (-b + math.sqrt(delta)) / (2 * a)
 
     print(f"dwa rozwiazania dla: {x1} oraz {x2}")
