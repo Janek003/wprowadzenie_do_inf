@@ -1,48 +1,24 @@
 # ns builder download
 import math
 
-poprawne_opcje = [0, 1, 2]
+poprawne_opcje = ["0", "1", "2"]
 
-p1 = int(input("Gracz 1, (0 papier, 1 nożyce, 2 kamień): "))
+p1 = input("Gracz 1, (0 papier, 1 nożyce, 2 kamień): ")
 while p1 not in poprawne_opcje:
     p1 = input("Gracz 1, bledny format, wprowadz ponownie: ")
 
-p2 = int(input("Gracz 2, (0 papier, 1 nożyce, 2 kamień): "))
+p2 = input("Gracz 2, (0 papier, 1 nożyce, 2 kamień): ")
 while p2 not in poprawne_opcje:
     p2 = input("Gracz 2, bledny format, wprowadz ponownie: ")
 
-r = "remis"
-n1 = "player 1 wins"
-n2 = "player 2 wins"
+remisy = [["00", "11", "22"], "remis"]
+p1_win = [["10", "21", "02"], "wygrywa gracz 1"]
+p2_win = [["20", "01", "12"], "wygrywa gracz 2"]
 
-if p1 == 0:
-    
-    if p2 == 0: 
-        print(r)
-    
-    elif p2 == 1:
-        print(n2)
-    
-    else:
-        print(n1)
+razem = [remisy, p2_win, p1_win]
 
-elif p1 == 1:
-    
-    if p2 == 0: 
-        print(n1)
-    
-    elif p2 == 1:
-        print(r)
-    
-    else:
-        print(n2)
+zlozone_p2_p1 = p1+p2
 
-else:
-    if p2 == 0: 
-        print(n2)
-    
-    elif p2 == 1:
-        print(n1)
-    
-    else:
-        print(r)
+for item in razem:
+    if zlozone_p2_p1 in item[0]:
+        print(item[1])
