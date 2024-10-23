@@ -22,3 +22,5 @@ zlozone_p2_p1 = p1+p2
 for item in razem:
     if zlozone_p2_p1 in item[0]:
         print(item[1])
+
+input("Nacisnij dowolny klawisz aby wyjsc...")

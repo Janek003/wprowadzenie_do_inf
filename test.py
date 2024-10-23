@@ -12,3 +12,5 @@ while choice_player_2 not in poprawne_opcje:
     
 if choice_player_1 == 0 and choice_player_2:
     pass
+
+input("Nacisnij dowolny klawisz aby wyjsc...")

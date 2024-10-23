@@ -14,3 +14,5 @@ while gratrwa:
         print('podana liczba jest za mala')
     else:
         print('podana liczba jest za duza')
+
+input("Nacisnij dowolny klawisz aby wyjsc...")

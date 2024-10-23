@@ -17,6 +17,4 @@ elif odleglosc1 > odleglosc2:
 else:
     print('Remis')
 
-
-
-
+input("Nacisnij dowolny klawisz aby wyjsc...")

@@ -18,3 +18,5 @@ else:
     x2 = (-b + math.sqrt(delta)) / (2 * a)
 
     print(f"dwa rozwiazania dla: {x1} oraz {x2}")
+
+input("Nacisnij dowolny klawisz aby wyjsc...")

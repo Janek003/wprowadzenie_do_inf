@@ -14,3 +14,5 @@ print(f"dziesiatki: {dziesiatki}")
 print(f"setki: {setki}")
 
 print(f"suma cyfr: {jednosci + dziesiatki + setki}")
+
+input("Nacisnij dowolny klawisz aby wyjsc...")
