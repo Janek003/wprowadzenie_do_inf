@@ -15,7 +15,7 @@ while not game_finished:
     if skip <= 0 and not trap:
         
         wylosowana = random.randint(1, 4)
-        input('Click any buton to roll the dice...')
+        input('Click ENTER to roll the dice...')
         print(f'You rolled: {wylosowana}.')
 
         pozycja_p1 += wylosowana
@@ -27,7 +27,6 @@ while not game_finished:
             pozycja_p1 += 5
             print(f'You ended up on field: {pozycja_p1}.')
 
-        
         if oznaczenie_pola[pozycja_p1] == "b":
             skip = random.randint(1,3)
             print(f'You are standing on superfield(B) -> Your spaceship is broken, fixing it will take {skip} rounds')
@@ -47,15 +46,19 @@ while not game_finished:
     elif skip > 0:
         skip += -1
         print(f'You are still fixing your spaceship, you have {skip} rounds left')
+        input("Click ENTER to acknowledge...")
+        
 
 
     elif trap:
         wylosowana = random.randint(1, 4)
         print('You are still in a trap, to free yourself - you must roll 4.')
-        input('Click any buton to roll the dice...')
+        input('Click ENTER to roll the dice...')
         print(f'You rolled: {wylosowana}.')
         if wylosowana == 4:
             trap = False
-            pozycja_p1 += wylosowana
+            print("You escaped. You can move from next round on.")
 
-input("Click any button to exit...")
+    print()
+
+input("Click ENTER to exit...")
