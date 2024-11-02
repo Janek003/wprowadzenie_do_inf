@@ -36,7 +36,7 @@ class Enemy:
 
 def init_protagonist():
     starting_max_hp = 100
-    starting_gold = 1000
+    starting_gold = 15
     starting_napoje = 2
     starting_dmg = 25
 
@@ -208,7 +208,7 @@ def petla_glowna(gladiator):
                 if fight(gladiator, 'final_boss'):
                     input('You won the game, congrats!')
                     return False
-                    
+
             else: input('You have to be a level 3 gladiator to fight the final boss...')
             return True
         
