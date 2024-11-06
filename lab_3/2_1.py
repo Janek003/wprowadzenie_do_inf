@@ -26,4 +26,4 @@ while result == "remis":
             result = item[1]
             print(result)
 
-input("Nacisnij dowolny klawisz aby wyjsc...")
+input("Nacisnij ENTER aby wyjsc...")
