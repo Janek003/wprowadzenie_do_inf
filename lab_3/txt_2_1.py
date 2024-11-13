@@ -20,6 +20,10 @@ while not game_finished:
 
         pozycja_p1 += wylosowana
 
+        if pozycja_p1 >= 19:
+            print('You reached the end, you won!')
+            game_finished = True
+
         print(f'You ended up on field: {pozycja_p1}.')
 
         if oznaczenie_pola[pozycja_p1] == "a":
@@ -39,9 +43,7 @@ while not game_finished:
             print('You are standing on superfield(E) -> You get cought up in a trap, to get out of it in the next round, you will have to roll 4, good luck...')
             trap = True
 
-        if pozycja_p1 >= 19:
-            print('You reached the end, you won!')
-            game_finished = True
+
 
     elif skip > 0:
         skip += -1
