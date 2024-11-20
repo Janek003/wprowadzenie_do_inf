@@ -12,10 +12,11 @@ def make_random_list(n):
         ls.append(random.randint(1,100))
 
 def znajdzmin(n):
-    temp_ls = ls
-    for item in temp_ls:
-        if item < n: temp_ls.remove(item)
+    temp_ls = []
 
+    for item in ls:
+        if item >= n: temp_ls.append(item)
+    
     print(temp_ls)
 
     return min(temp_ls)
@@ -43,7 +44,7 @@ usun_min()
 input('\nENTER -> znajdz min...')
 
 n = int(input('wartosc ponizej ktorych ignorowane: '))
-print(znajdzmin(n))
+print(f'\nwartosc minimalna nie mniejsza od {n}: {znajdzmin(n)}')
 
 input('\nENTER -> usun elementy...')
 n = int(input('ile wartosci elementow do usuniecia: '))
