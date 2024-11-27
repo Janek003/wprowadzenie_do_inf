@@ -1,7 +1,7 @@
 from copy import deepcopy
 
-# n = int(input("n -> liczba dyskow, n = "))
-n = 4
+n = int(input("n -> liczba dyskow, n = "))
+#n = 4
 
 min_moves = sum(2**i for i in range(n))
 print(min_moves)
@@ -14,6 +14,9 @@ which_to_move = [0 for _ in range(min_moves)]
 for a in range(n):
     for i in range(2**a - 1, min_moves - (2**a - 1), 2**(a+1)): which_to_move[i] = a
 print(which_to_move)
+
+optymalne_ruchy=[0 for _ in range(min_moves+1)]
+
 print('---------------')
 
 def smallestOnPoleNr(pole_nr, poles):
@@ -36,29 +39,41 @@ def whereIsDisc(disc, poles):
         if disc in poles[i]: return i
 
 def findMove(move_nr, poles):
+    optymalne_ruchy[move_nr] = poles
+
     if move_nr == min_moves:
         if poles[2] == [i for i in range(n-1, -1, -1)]:
-            print(f"finished: {poles}")
             return True
         else:
             return False
-
+    
     disc = which_to_move[move_nr]
     curr_disc_position = whereIsDisc(disc, poles)
-    if disc > smallestOnPoleNr(curr_disc_position, poles): 
+    if disc > smallestOnPoleNr(curr_disc_position, poles):
+        optymalne_ruchy[move_nr] = 0
         return False 
+    
 
     for pole_nr in range(3):
         if canDiscGoThereNow(move_nr, pole_nr, poles):
             updated_copy_of_poles = moveDiscFromTo(disc, curr_disc_position, pole_nr, poles)
-            findMove(move_nr+1, deepcopy(updated_copy_of_poles))
-    return False        
+            if findMove(move_nr+1, deepcopy(updated_copy_of_poles)):
+                return True
+
+    return False 
 
 findMove(0, deepcopy(poles_init))
+for i, item in enumerate(optymalne_ruchy):
+    print(f'{i}\t{item}')
+
+
 # najwiekszym problemem bylo dodawanie ruchow do bad_moves
 # nie powinno istniec cos takiego jak bad moves
 # jesli jest on zly to sam algorytm wycofa sie z tej drogi zwracajac falsz dla dalszych krokow i przechodzac do nastepnej opcji w petli for
 # uzywajac bad moves uniemozliwialem algorytmowi wykonanie ponownie tego samego ruchu dla kompletnie innego srodowiska
-# ogolnie w rekursji nie mozna uzywac tej techniki, bo sama rekursja do tego slozy
+# ogolnie w rekursji nie mozna uzywac tej techniki, bo sama rekursja do tego sluzy
 # aviable moves nie maja myc najlepszymi ani prowadzacymi do sukcesu tylko rzeczywiscie mozliwymi
 # to petla for odrzuca zle elementy, ta petla for przechodzi tylko raz, wiec zaden element nie bedzie probowany w nieskaczonosc
+# deepcopy jest pewnie niepotrzebne w wiekszosci przypadkow
+# wazna sprawa: w poprzedniej wersji rekursja jest nieskonczona bo
+# gdy findMove(+1) returned True to findMove() powinna return True zeby skonczyc rekurencje a nie bylo tego
