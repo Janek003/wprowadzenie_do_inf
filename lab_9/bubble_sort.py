@@ -13,12 +13,12 @@ def bubble_sort(tab):
     return tab
 
 nazwa_plik = input("nazwa pliku z danymi: ")
-adres_plik = f"swieta\\{nazwa_plik}.txt"
+adres_plik = f"lab_9\\{nazwa_plik}.txt"
 with open(adres_plik, 'r') as f:
     vals = [int(i) for i in f.read().split()]
     print(vals)
 
 vals = bubble_sort(vals)
-with open("swieta\\wynik.txt", 'w') as f:
+with open("lab_9\\wynik.txt", 'w') as f:
     for item in vals:
         f.write(f"{item}\n")
