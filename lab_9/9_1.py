@@ -2,7 +2,7 @@ from math import sqrt
 
 n = int(input("koniec zakresu poszukiwania: "))
 
-tab = [True for i in range(n-1)] # True == pierwsza
+tab = [True for _ in range(n-1)] # True == pierwsza
 
 koniec_poszukiwan = int(sqrt(n))
 print(koniec_poszukiwan)
@@ -16,7 +16,3 @@ for i in range(koniec_poszukiwan):
             tab[j] = False
 
 print(tab)
-
-    
-    
-

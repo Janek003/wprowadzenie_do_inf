@@ -1,3 +1,5 @@
+import os
+
 def zamien(tablica, indeks1, indeks2):
     a = tablica[indeks1]
     tablica[indeks1] = tablica[indeks2]
@@ -13,12 +15,15 @@ def bubble_sort(tab):
     return tab
 
 nazwa_plik = input("nazwa pliku z danymi: ")
-adres_plik = f"lab_9\\{nazwa_plik}.txt"
+
+adres_plik = f"{os.getcwd()}\\{nazwa_plik}.txt"
 with open(adres_plik, 'r') as f:
     vals = [int(i) for i in f.read().split()]
     print(vals)
 
 vals = bubble_sort(vals)
-with open("lab_9\\wynik.txt", 'w') as f:
+print(vals)
+
+with open(f"{os.getcwd()}\\wynik.txt", 'w') as f:
     for item in vals:
         f.write(f"{item}\n")
